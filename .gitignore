@@ -1,0 +1,338 @@
+# =============================================================================
+# 🔒 PROTECCIÓN DE CREDENCIALES Y DATOS SENSIBLES
+# =============================================================================
+
+# Archivos de configuración con credenciales
+.env
+.env.local
+.env.production
+.env.staging
+.env.test
+*.env
+
+# Claves API y configuraciones secretas
+config/secrets.json
+secrets.json
+api_keys.txt
+credentials.json
+
+# =============================================================================
+# 📁 CARPETAS CON DATOS SENSIBLES
+# =============================================================================
+
+# Archivos de audio originales (pueden contener información confidencial)
+audios/
+audios/*
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.aac
+
+# Transcripciones generadas (contenido sensible)
+transcripciones/
+transcripciones/*
+*.txt
+
+# Archivos temporales de chunks
+chunks/
+chunks/*
+temp_audio/
+
+# Logs (pueden contener información sensible)
+logs/
+logs/*
+*.log
+
+# Archivos de backup
+backup/
+backups/
+*.backup
+
+# =============================================================================
+# 🐍 PYTHON ENVIRONMENT
+# =============================================================================
+
+# Entorno virtual
+.venv/
+venv/
+env/
+ENV/
+.virtualenv/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# =============================================================================
+# 💻 SISTEMA OPERATIVO
+# =============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# 🛠️ HERRAMIENTAS DE DESARROLLO
+# =============================================================================
+
+# VS Code
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/settings.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# =============================================================================
+# 📊 ARCHIVOS DE DATOS SENSIBLES
+# =============================================================================
+
+# Bases de datos
+*.db
+*.sqlite
+*.sqlite3
+*.db3
+
+# Archivos de configuración con datos sensibles
+config.ini
+settings.ini
+local_settings.py
+
+# Archivos de salida que pueden contener información sensible
+output/
+results/
+reports/
+
+# Archivos CSV con datos procesados
+*.csv
+data.csv
+results.csv
+
+# =============================================================================
+# 🔧 ARCHIVOS TEMPORALES Y CACHE
+# =============================================================================
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Cache
+cache/
+.cache/
+tmp/
+temp/
+
+# =============================================================================
+# 📝 DOCUMENTACIÓN SENSIBLE
+# =============================================================================
+
+# Notas privadas que pueden contener información sensible
+NOTAS_PRIVADAS.md
+notas.md
+TODO_PRIVADO.md
+CREDENCIALES.md
+
+# Archivos de configuración de proyecto específicos
+.project
+.classpath
+
+# =============================================================================
+# 🌐 ARCHIVOS DE RED Y DEPLOY
+# =============================================================================
+
+# Certificados SSL
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Archivos de configuración de servidores
+.htaccess
+.htpasswd
+
+# =============================================================================
+# 📦 ARCHIVOS COMPRIMIDOS QUE PUEDEN CONTENER DATOS
+# =============================================================================
+
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# =============================================================================
+# 🎯 ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# =============================================================================
+
+# Resultados de análisis
+analysis_results/
+processed_data/
+
+# Modelos entrenados (si los hubiera)
+models/
+*.model
+*.pkl
+*.pickle
+
+# Archivos de configuración específicos del usuario
+user_config.json
+personal_settings.json

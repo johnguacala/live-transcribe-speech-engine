@@ -7,7 +7,7 @@ Autor: John Guarenas
 Proyecto: HearingsWhisper
 """
 
-import openai
+from openai import OpenAI
 from pathlib import Path
 import time
 from typing import List, Dict
@@ -27,7 +27,7 @@ class WhisperTranscriber:
         self.audio_processor = AudioProcessor(self.logger)
         
         # Configurar OpenAI
-        openai.api_key = config.openai_api_key
+        self.client = OpenAI(api_key=config.openai_api_key)
         
         # Verificar que las carpetas existan
         self._ensure_directories()
@@ -70,7 +70,7 @@ class WhisperTranscriber:
             with open(audio_path, "rb") as audio_file:
                 self.logger.debug(f"Enviando {audio_path.name} a OpenAI...")
                 
-                response = openai.Audio.transcribe(
+                response = self.client.audio.transcriptions.create(
                     model=self.config.model,
                     file=audio_file,
                     response_format=self.config.response_format,
@@ -78,7 +78,7 @@ class WhisperTranscriber:
                     prompt=prompt
                 )
                 
-                return response if isinstance(response, str) else response.text
+                return response.text if hasattr(response, 'text') else response
                 
         except Exception as e:
             self.logger.error(f"Error transcribiendo {audio_path.name}", e)

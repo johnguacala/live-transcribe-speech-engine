@@ -6,8 +6,14 @@ from pathlib import Path
 class Config:
     """Configuración centralizada del proyecto"""
     
-    # API Settings
+    # API Settings (campos requeridos sin default)
     openai_api_key: str
+    audio_folder: Path
+    chunks_folder: Path
+    transcriptions_folder: Path
+    logs_folder: Path
+    
+    # API Settings (con defaults)
     model: str = "whisper-1"
     language: str = "es"
     response_format: str = "text"
@@ -16,12 +22,6 @@ class Config:
     chunk_duration_minutes: int = 10  # Chunks de 10 minutos
     max_file_size_mb: int = 24        # Límite de OpenAI es 25MB
     overlap_seconds: int = 30         # Overlap entre chunks para continuidad
-    
-    # Paths
-    audio_folder: Path
-    chunks_folder: Path
-    transcriptions_folder: Path
-    logs_folder: Path
     
     # Prompts específicos para Puerto Rico
     prompt_template: str = (

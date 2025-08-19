@@ -128,28 +128,36 @@ def test_openai_connection():
     print("\n🌐 Verificando conexión con OpenAI...")
     
     try:
-        import openai
+        from openai import OpenAI
         from config import Config
         
         config = Config.from_env()
-        openai.api_key = config.openai_api_key
+        
+        if not config.openai_api_key or config.openai_api_key == "tu_clave_aqui":
+            print("  ⚠️  API Key no configurada")
+            print("     🔑 Configura tu clave en .env primero")
+            return True  # No es un error crítico si no está configurada
+        
+        client = OpenAI(api_key=config.openai_api_key)
         
         # Solo verificar que la clave sea válida (sin hacer transcripción)
         try:
             # Este endpoint es gratuito para verificar la clave
-            models = openai.Model.list()
+            models = client.models.list()
             print("  ✅ Conexión con OpenAI exitosa")
             print("  ✅ API Key válida")
             return True
             
-        except openai.error.AuthenticationError:
-            print("  ❌ API Key inválida")
-            print("     🔑 Verifica tu clave en .env")
-            return False
         except Exception as e:
-            print(f"  ⚠️  No se pudo verificar conexión: {e}")
-            print("     🌐 Verifica tu conexión a internet")
-            return True  # No bloquear por problemas de red
+            error_str = str(e).lower()
+            if "authentication" in error_str or "invalid" in error_str:
+                print("  ❌ API Key inválida")
+                print("     🔑 Verifica tu clave en .env")
+                return False
+            else:
+                print(f"  ⚠️  No se pudo verificar conexión: {e}")
+                print("     🌐 Verifica tu conexión a internet")
+                return True  # No bloquear por problemas de red
     
     except Exception as e:
         print(f"  ❌ Error verificando OpenAI: {e}")
