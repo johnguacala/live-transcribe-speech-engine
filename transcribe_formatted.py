@@ -29,7 +29,8 @@ class FormattedTranscriber:
     
     def __init__(self, logger: TranscriptionLogger):
         self.logger = logger
-        self.whisper_transcriber = WhisperTranscriber(Config(), logger)
+        self.config = Config.from_env()
+        self.whisper_transcriber = WhisperTranscriber(self.config)
         self.audio_processor = AudioProcessor(logger)
     
     def seconds_to_timecode(self, seconds: float) -> str:
@@ -243,7 +244,8 @@ def main():
         sys.exit(1)
     
     # Inicializar
-    logger = TranscriptionLogger()
+    logs_folder = Path("logs")
+    logger = TranscriptionLogger(logs_folder)
     transcriber = FormattedTranscriber(logger)
     
     try:
