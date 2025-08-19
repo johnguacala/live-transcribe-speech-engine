@@ -1,0 +1,11 @@
+# Dependencias principales
+openai>=1.0.0
+python-dotenv>=1.0.0
+ffmpeg-python>=0.2.0
+
+# Para logging y utilidades
+tqdm>=4.65.0
+
+# Para desarrollo (opcional)
+pytest>=7.0.0
+black>=23.0.0
