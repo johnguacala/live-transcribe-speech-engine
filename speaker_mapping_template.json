@@ -1,0 +1,19 @@
+{
+  "_comment": "Mapeo de speakers detectados a nombres reales",
+  "_instructions": "Edita este archivo para asignar nombres reales a los speakers detectados",
+  "_example": {
+    "SPEAKER_00": "Juez",
+    "SPEAKER_01": "Fiscal", 
+    "SPEAKER_02": "LCDO",
+    "SPEAKER_03": "Testigo"
+  },
+  "_format_info": {
+    "timecode_format": "HH;MM;SS;FF (horas;minutos;segundos;frames)",
+    "output_format": [
+      "timecode",
+      "speaker_name", 
+      "transcription_text",
+      "blank_line"
+    ]
+  }
+}
