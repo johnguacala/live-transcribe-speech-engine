@@ -3,6 +3,7 @@
 ## ✅ Estado Actual
 
 ### ✅ Completado
+
 - [x] **Entorno Python**: Configurado con Python 3.13.3
 - [x] **Dependencias**: Todas instaladas (OpenAI, ffmpeg-python, python-dotenv, tqdm)
 - [x] **ffmpeg**: Instalado y funcionando correctamente
@@ -11,6 +12,7 @@
 - [x] **Verificación**: Script test_setup.py pasando 4/5 pruebas
 
 ### ⚠️ Pendiente
+
 - [ ] **API Key de OpenAI**: Necesitas configurar tu clave en `.env`
 - [ ] **Archivos de audio**: Colocar tus MP3s en la carpeta `audios/`
 
@@ -19,14 +21,16 @@
 ### 1. Configurar tu API Key de OpenAI
 
 1. **Obtén tu API Key:**
+
    - Ve a: https://platform.openai.com/api-keys
    - Crea una nueva clave si no tienes una
 
 2. **Configúrala en el proyecto:**
+
    ```bash
    # Abre el archivo .env y reemplaza esta línea:
    OPENAI_API_KEY=tu_clave_aqui
-   
+
    # Por tu clave real:
    OPENAI_API_KEY=sk-tu-clave-real-de-openai-aqui
    ```
@@ -100,6 +104,7 @@ HearingsWhisper/
 ## 🚨 Recordatorio Importante
 
 **Antes de procesar archivos largos:**
+
 1. Prueba con un archivo pequeño primero
 2. Verifica que la transcripción sea de buena calidad
 3. El script siempre te mostrará el costo antes de procesar

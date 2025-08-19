@@ -5,26 +5,31 @@
 Este proyecto está configurado para **NUNCA** subir información sensible a git. Los siguientes archivos están protegidos:
 
 ### 🔑 Credenciales
+
 - `.env` - Tu clave API de OpenAI y configuraciones sensibles
 - `*.env` - Cualquier archivo de configuración de entorno
 - `config/secrets.json` - Configuraciones secretas
 - `credentials.json` - Archivos de credenciales
 
 ### 🎵 Archivos de Audio (Contenido Confidencial)
+
 - `audios/` - Tus archivos MP3 originales
 - `*.mp3`, `*.wav`, `*.m4a`, etc. - Cualquier archivo de audio
 - `chunks/` - Archivos temporales de audio
 
 ### 📄 Transcripciones (Contenido Sensible)
+
 - `transcripciones/` - Todas las transcripciones generadas
 - `*.txt` - Archivos de texto que pueden contener contenido confidencial
 
 ### 📊 Logs y Datos
+
 - `logs/` - Logs que pueden contener información del procesamiento
 - `*.log` - Archivos de registro
 - `*.csv` - Datos procesados
 
 ### 🐍 Entorno de Desarrollo
+
 - `.venv/` - Entorno virtual de Python
 - `__pycache__/` - Cache de Python
 - `.vscode/` - Configuraciones personales de VS Code
@@ -32,6 +37,7 @@ Este proyecto está configurado para **NUNCA** subir información sensible a git
 ## ✅ CONFIGURACIÓN INICIAL SEGURA
 
 ### 1. Configurar Credenciales
+
 ```bash
 # Copia la plantilla
 cp .env.example .env
@@ -41,6 +47,7 @@ cp .env.example .env
 ```
 
 ### 2. Verificar Protección
+
 ```bash
 # Verificar que .env NO aparece en git
 git status
@@ -54,6 +61,7 @@ git check-ignore .env
 ## 🛡️ MEJORES PRÁCTICAS
 
 ### ✅ QUÉ HACER
+
 - ✅ Usar `.env.example` como plantilla pública
 - ✅ Mantener credenciales solo en `.env` local
 - ✅ Verificar `.gitignore` antes de commits
@@ -61,6 +69,7 @@ git check-ignore .env
 - ✅ Compartir solo código, nunca datos
 
 ### ❌ QUÉ NO HACER
+
 - ❌ NUNCA subir `.env` a git
 - ❌ NUNCA hardcodear API keys en código
 - ❌ NUNCA compartir archivos de audio originales
@@ -70,6 +79,7 @@ git check-ignore .env
 ## 🔍 VERIFICACIÓN DE SEGURIDAD
 
 ### Comando Rápido de Verificación
+
 ```bash
 # Verificar que archivos sensibles están protegidos
 git ls-files | grep -E "\.(env|log|mp3|wav|txt)$|audios/|transcripciones/"
@@ -77,6 +87,7 @@ git ls-files | grep -E "\.(env|log|mp3|wav|txt)$|audios/|transcripciones/"
 ```
 
 ### Verificar .gitignore
+
 ```bash
 # Probar que archivos están ignorados
 git check-ignore .env audios/ transcripciones/ logs/
@@ -86,6 +97,7 @@ git check-ignore .env audios/ transcripciones/ logs/
 ## 🚨 SI ACCIDENTALMENTE SUBES DATOS SENSIBLES
 
 ### 1. Remover del Historial
+
 ```bash
 # Remover archivo del tracking (mantener local)
 git rm --cached archivo_sensible
@@ -97,11 +109,13 @@ git filter-branch --force --index-filter \
 ```
 
 ### 2. Invalidar Credenciales
+
 - **API Keys**: Regenerar inmediatamente en OpenAI
 - **Tokens**: Revocar y crear nuevos
 - **Passwords**: Cambiar inmediatamente
 
 ### 3. Force Push (Solo si es necesario)
+
 ```bash
 git push origin --force --all
 ```
@@ -109,6 +123,7 @@ git push origin --force --all
 ## 🎯 ARCHIVOS SEGUROS PARA COMPARTIR
 
 Los siguientes archivos SÍ pueden ser públicos:
+
 - ✅ `README.md`
 - ✅ `requirements.txt`
 - ✅ `*.py` (código fuente)
@@ -119,12 +134,14 @@ Los siguientes archivos SÍ pueden ser públicos:
 ## 🔒 CONFIGURACIÓN ADICIONAL
 
 ### Variables de Entorno del Sistema (Alternativa más segura)
+
 ```bash
 # En lugar de .env, usar variables del sistema:
 export OPENAI_API_KEY="sk-tu-clave-aqui"
 ```
 
 ### Usar Secrets en GitHub Actions (para CI/CD)
+
 ```yaml
 # .github/workflows/main.yml
 env:
@@ -134,6 +151,7 @@ env:
 ## ⚠️ RECORDATORIO IMPORTANTE
 
 **Este proyecto maneja:**
+
 - 🔑 **Credenciales API costosas** (OpenAI)
 - 🎵 **Audio confidencial** (audiencias de 4-5 horas)
 - 📄 **Transcripciones sensibles** (contenido legal/privado)
